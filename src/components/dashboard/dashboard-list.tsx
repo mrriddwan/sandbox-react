@@ -21,7 +21,7 @@ export default function DashboardList({
 
   return (
     <>
-      <div className="bg-neutral-100 p-10 flex flex-col gap-5">
+      <div className="bg-neutral-100 pt-10 md:p-10 flex flex-col gap-5">
         <div className="bg-white p-5">
           {tasks.length > 0 &&
             tasks.map((task) => {
