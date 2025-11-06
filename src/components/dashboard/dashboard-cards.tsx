@@ -1,5 +1,12 @@
 import type { ITask } from "../../types/task";
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Legend,
+  Tooltip,
+} from "recharts";
 
 export default function DashboardCards({
   tasks,
@@ -9,12 +16,12 @@ export default function DashboardCards({
   const headerStyle = "text-xl text-gray-600";
   const completedTasks = tasks.filter((task) => task.is_completed).length;
   const incompleteTasks = tasks.length - completedTasks;
-  
+
   const pieData = [
     { name: "Completed", value: completedTasks },
     { name: "Incomplete", value: incompleteTasks },
   ];
-  
+
   const COLORS = ["#3b82f6", "#e5e7eb"];
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4 py-10 md:p-10">
@@ -33,21 +40,21 @@ export default function DashboardCards({
       {/** latest created tasks */}
       <div className={cardStyle}>
         <h2 className={headerStyle}>Latest Created Tasks</h2>
-        <div className="flex flex-row justify-start items-stretch">
-          <ul className="flex flex-col justify-start text-left list-disc">
-            {tasks.length > 0 &&
-              tasks.map((task) => {
-                return (
-                  <li
-                    key={`${task.id}`}
-                    className={`${task.is_completed && "line-through"} text-gray-500`}
-                  >
-                    {task.description}
-                  </li>
-                );
-              })}
-          </ul>
-        </div>
+        <ul className="flex flex-col justify-start text-left list-disc pl-5">
+          {tasks.length > 0 &&
+            tasks.map((task) => {
+              return (
+                <li
+                  key={`${task.id}`}
+                  className={`${
+                    task.is_completed && "line-through"
+                  } text-gray-500 text-lg`}
+                >
+                  {task.description}
+                </li>
+              );
+            })}
+        </ul>
       </div>
       {/** pie chart progress */}
       <div className={cardStyle}>
@@ -64,12 +71,13 @@ export default function DashboardCards({
                 dataKey="value"
               >
                 {pieData.map((_, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
                 ))}
               </Pie>
-              <Tooltip 
-                formatter={(value: number) => [`${value} tasks`, '']}
-              />
+              <Tooltip formatter={(value: number) => [`${value} tasks`, ""]} />
               <Legend />
             </PieChart>
           </ResponsiveContainer>

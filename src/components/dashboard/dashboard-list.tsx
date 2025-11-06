@@ -21,7 +21,7 @@ export default function DashboardList({
 
   return (
     <>
-      <div className="bg-neutral-100 pt-10 md:p-10 flex flex-col gap-5">
+      <div className="bg-neutral-100 py-10 md:p-10 flex flex-col gap-5">
         <div className="bg-white p-5">
           {tasks.length > 0 &&
             tasks.map((task) => {
@@ -30,7 +30,7 @@ export default function DashboardList({
               return (
                 <div
                   key={`${task.id}`}
-                  className="flex bg-white border-b-neutral-200 border-b px-3 py-5 justify-between"
+                  className="flex bg-white border-b-neutral-200 border-b px-3 py-5 justify-between text-xl"
                 >
                   <div className="flex gap-2">
                     <input
@@ -67,9 +67,9 @@ export default function DashboardList({
                         onEditHandler(task.id, editedTask);
                       }}>
                       {task.is_editing ? (
-                        <FaFloppyDisk className="w-4 h-4" />
+                        <FaFloppyDisk className="w-6 h-6" />
                       ) : (
-                        <BiPencil className="w-4 h-4" />
+                        <BiPencil className="w-6 h-6" />
                       )}
                     </button>
                     <button
@@ -78,7 +78,7 @@ export default function DashboardList({
                         setIsModalOpen(true);
                       }}
                     >
-                      <BiTrash className="w-4 h-4" />
+                      <BiTrash className="w-6 h-6" />
                     </button>
                   </div>
                 </div>

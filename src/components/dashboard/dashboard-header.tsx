@@ -16,7 +16,7 @@ export const DashboardHeader = ({
   return (
     <div className="flex flex-col md:flex-row justify-between px-10 gap-4">
       <h1 className="text-2xl text-gray-700 text-center md:text-left">Tasks</h1>
-      <div className="flex flex-col md:flex-row gap-4 w-full">
+      <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
         <div className="relative p-3 rounded-xl bg-gray-200 flex items-center gap-2 md:w-[200px]">
           <FaMagnifyingGlass
             className={`h-4 transition-all duration-300 ease-in-out ${
