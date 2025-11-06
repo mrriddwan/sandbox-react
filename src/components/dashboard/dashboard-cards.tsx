@@ -17,7 +17,7 @@ export default function DashboardCards({
   
   const COLORS = ["#3b82f6", "#e5e7eb"];
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4 pt-10 md:p-10">
+    <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4 py-10 md:p-10">
       {/** completed tasks */}
       <div className={cardStyle}>
         <h2 className={headerStyle}>Tasks Completed</h2>
