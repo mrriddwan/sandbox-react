@@ -9,15 +9,15 @@ export default function CreateModal({
   onCreateHandler,
 }: Readonly<{
   isOpen: boolean;
-  onClose: Function;
-  onCreateHandler: Function;
+  onClose: React.Dispatch<React.SetStateAction<boolean>>;
+  onCreateHandler: (task:string) => void;
 }>) {
   const [newTask, setNewTask] = useState("");
 
   if (!isOpen) return null;
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={() => onClose(false)}>
       <button className="flex justify-start items-center gap-2">
         <PiPlus className="w-4 h-4" />
         <h2 className="text-2xl">New Task</h2>
