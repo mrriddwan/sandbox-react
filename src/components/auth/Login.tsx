@@ -27,7 +27,7 @@ export const Login = () => {
           ) : (
             <div className="flex gap-3 items-center justify-center">
               <FcGoogle />
-              <span className="text-gray-300 font-medium">
+              <span className="text-black font-medium">
                 Continue with Google
               </span>
             </div>
