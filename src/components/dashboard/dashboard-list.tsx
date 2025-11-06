@@ -11,9 +11,9 @@ export default function DashboardList({
   onDeleteHandler,
 }: Readonly<{
   tasks: ITask[];
-  onCheckHandler: Function;
-  onEditHandler: Function;
-  onDeleteHandler: Function;
+  onCheckHandler: (taskId: number) => void;
+  onEditHandler: (taskId: number, latestDescription?: string) => void;
+  onDeleteHandler: (taskId: number) => void;
 }>) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [toDeleteId, setToDeleteId] = useState(0);

@@ -5,8 +5,8 @@ export const ConfirmDialog = ({
   onConfirm,
   onCancel,
 }: {
-  onConfirm: Function;
-  onCancel: Function;
+  onConfirm: () => void;
+  onCancel: () => void;
   isOpen: boolean;
 }) => {
   return (
