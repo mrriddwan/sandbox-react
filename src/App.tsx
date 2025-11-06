@@ -23,7 +23,7 @@ function App() {
           isAuthenticated ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex flex-col h-full w-full">
+        <div className="flex flex-col h-full w-full overflow-y-auto">
           <Dashboard />
         </div>
       </div>

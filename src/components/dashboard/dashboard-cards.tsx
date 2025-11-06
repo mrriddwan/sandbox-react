@@ -5,7 +5,7 @@ export default function DashboardCards({
   tasks,
 }: Readonly<{ tasks: ITask[] }>) {
   const cardStyle =
-    "flex flex-col bg-white rounded-2xl shadow p-5 justify-start text-left gap-4 p-10";
+    "flex flex-col bg-white rounded-2xl shadow justify-start text-left gap-4 p-10";
   const headerStyle = "text-xl text-gray-600";
   const completedTasks = tasks.filter((task) => task.is_completed).length;
   const incompleteTasks = tasks.length - completedTasks;
@@ -40,7 +40,7 @@ export default function DashboardCards({
                 return (
                   <li
                     key={`${task.id}`}
-                    className={`${task.is_completed && "line-through"}`}
+                    className={`${task.is_completed && "line-through"} text-gray-500`}
                   >
                     {task.description}
                   </li>

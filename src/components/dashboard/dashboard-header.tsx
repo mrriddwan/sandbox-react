@@ -14,10 +14,10 @@ export const DashboardHeader = ({
   const [isSearching, setIsSearching] = useState(false);
 
   return (
-    <div className="flex justify-between px-10">
-      <h1 className="text-2xl text-gray-700">Tasks</h1>
-      <div className="flex gap-4">
-        <div className="relative p-3 rounded-xl bg-gray-200 flex items-center gap-2 w-[200px]">
+    <div className="flex flex-col md:flex-row justify-between px-10 gap-4">
+      <h1 className="text-2xl text-gray-700 text-center md:text-left">Tasks</h1>
+      <div className="flex flex-col md:flex-row gap-4 w-full">
+        <div className="relative p-3 rounded-xl bg-gray-200 flex items-center gap-2 md:w-[200px]">
           <FaMagnifyingGlass
             className={`h-4 transition-all duration-300 ease-in-out ${
               isSearching || search ? "w-0 opacity-0" : "w-4 opacity-100"
