@@ -66,24 +66,3 @@ export const useTask = () => {
     setIsModalOpen,
   };
 };
-
-const initialTasks = [
-  {
-    id: 1,
-    description: "Clean the room",
-    is_completed: false,
-    is_editing: false,
-  },
-  {
-    id: 2,
-    description: "Buy some vegetables",
-    is_completed: false,
-    is_editing: false,
-  },
-  {
-    id: 3,
-    description: "Reinstall Windows on PC",
-    is_completed: true,
-    is_editing: false,
-  },
-];

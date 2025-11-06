@@ -4,7 +4,7 @@ export default function CreateModal({
   children,
 }: Readonly<{
   isOpen: boolean;
-  onClose: Function;
+  onClose: () => void;
   children: React.ReactNode;
 }>) {
   if (!isOpen) return null;

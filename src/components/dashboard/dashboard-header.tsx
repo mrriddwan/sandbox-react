@@ -8,8 +8,8 @@ export const DashboardHeader = ({
   setIsModalOpen,
 }: Readonly<{
   search: string;
-  setSearch: Function;
-  setIsModalOpen: Function;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }>) => {
   const [isSearching, setIsSearching] = useState(false);
 
