@@ -7,7 +7,7 @@ export const useTask = () => {
   //state
   const [tasks, setTasks] = useState<ITask[]>([]);
   const [search, setSearch] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { userContext } = useUserContext();
   
   const filteredTasks = tasks.filter((task: ITask) =>
@@ -80,13 +80,21 @@ export const useTask = () => {
     const fetchTasks = async () => {
       if (!userContext.id) {
         console.error("User not authenticated");
+        setIsLoading(false);
         return;
       }
-      const tasks = await taskService.getUserTasks(userContext.id as string);
-      setTasks(tasks);
+      setIsLoading(true);
+      try {
+        const tasks = await taskService.getUserTasks(userContext.id as string);
+        setTasks(tasks);
+      } catch (error) {
+        console.error("Failed to fetch tasks:", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
     fetchTasks();
-  }, []);
+  }, [userContext.id]);
 
   return {
     tasks,

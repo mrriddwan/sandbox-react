@@ -6,6 +6,8 @@ import { useTask } from "../../hooks/useTask";
 import { BiPlus } from "react-icons/bi";
 import TopNavbar from "./top-navbar";
 import { usePageTitle } from "../../hooks/usePageTitle";
+import TaskListSkeleton from "./task-list-skeleton";
+import DashboardCardsSkeleton from "./dashboard-cards-skeleton";
 
 export default function Dashboard() {
   const {
@@ -19,6 +21,7 @@ export default function Dashboard() {
     onCreateTask,
     setIsModalOpen,
     isModalOpen,
+    isLoading,
   } = useTask();
   
   usePageTitle("Dashboard | Sandbox");
@@ -27,7 +30,17 @@ export default function Dashboard() {
     <div>
       <TopNavbar />
       <div className="pt-20">
-        {tasks.length > 0 ? (
+        {isLoading ? (
+          <>
+            <DashboardCardsSkeleton />
+            <DashboardHeader
+              search={search}
+              setSearch={setSearch}
+              setIsModalOpen={setIsModalOpen}
+            />
+            <TaskListSkeleton />
+          </>
+        ) : tasks.length > 0 ? (
           <>
             {/**Dashboard Cards */}
             <DashboardCards tasks={tasks} />
