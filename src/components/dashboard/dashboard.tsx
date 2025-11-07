@@ -5,6 +5,7 @@ import { DashboardHeader } from "./dashboard-header";
 import { useTask } from "../../hooks/useTask";
 import { BiPlus } from "react-icons/bi";
 import TopNavbar from "./top-navbar";
+import { usePageTitle } from "../../hooks/usePageTitle";
 
 export default function Dashboard() {
   const {
@@ -19,6 +20,8 @@ export default function Dashboard() {
     setIsModalOpen,
     isModalOpen,
   } = useTask();
+  
+  usePageTitle("Dashboard | Sandbox");
 
   return (
     <div>

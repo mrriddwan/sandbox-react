@@ -10,9 +10,16 @@ export default function CreateModal({
 }: Readonly<{
   isOpen: boolean;
   onClose: React.Dispatch<React.SetStateAction<boolean>>;
-  onCreateHandler: (task:string) => void;
+  onCreateHandler: (task: string) => Promise<void>;
 }>) {
   const [newTask, setNewTask] = useState("");
+
+  const handleCreate = async () => {
+    if (newTask.trim()) {
+      await onCreateHandler(newTask);
+      setNewTask(""); // Clear input after creation
+    }
+  };
 
   if (!isOpen) return null;
 
@@ -25,15 +32,19 @@ export default function CreateModal({
       <input
         className="w-full  p-3 rounded-xl bg-gray-200 "
         placeholder="Task Name"
+        value={newTask}
         onChange={(e) => {
           setNewTask(e.target.value);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleCreate();
+          }
         }}
       />
       <button
         className="text-white flex gap-2 bg-blue-400 rounded-md p-3 justify-center items-center"
-        onClick={() => {
-          onCreateHandler(newTask);
-        }}
+        onClick={handleCreate}
       >
         <BiPlus className="w-4 h-4" />
         <span>New Task</span>

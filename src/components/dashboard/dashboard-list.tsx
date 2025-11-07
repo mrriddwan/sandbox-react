@@ -11,13 +11,13 @@ export default function DashboardList({
   onDeleteHandler,
 }: Readonly<{
   tasks: ITask[];
-  onCheckHandler: (taskId: number) => void;
-  onEditHandler: (taskId: number, latestDescription?: string) => void;
-  onDeleteHandler: (taskId: number) => void;
+  onCheckHandler: (taskId: string | number) => void;
+  onEditHandler: (taskId: string | number, latestDescription?: string) => void;
+  onDeleteHandler: (taskId: string | number) => void;
 }>) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [toDeleteId, setToDeleteId] = useState(0);
-  const [editedTasks, setEditedTasks] = useState<Record<number, string>>({});
+  const [toDeleteId, setToDeleteId] = useState<string | number>(0);
+  const [editedTasks, setEditedTasks] = useState<Record<string | number, string>>({});
 
   return (
     <>

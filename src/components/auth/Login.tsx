@@ -25,12 +25,12 @@ export const Login = () => {
           {isAuthenticating ? (
             <div>Loading ...</div>
           ) : (
-            <div className="flex gap-3 items-center justify-center">
+            <button className="flex gap-3 items-center justify-center cursor-pointer">
               <FcGoogle />
               <span className="text-black font-medium">
                 Continue with Google
               </span>
-            </div>
+            </button>
           )}
         </button>
       </div>

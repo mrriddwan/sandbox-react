@@ -1,5 +1,5 @@
 export interface ITask {
-  id: number;
+  id: string | number; 
   description: string;
   is_completed: boolean;
   is_editing: boolean;
